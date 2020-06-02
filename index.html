@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Book Shop</title>
+</head>
+
+<body onload="onInit()">
+
+    <div class="wrapper">
+
+        <div class="book-modal" id="" hidden onclick="onCloseModal()">
+            <div onclick="event.stopPropagation()">
+                <h2>
+                </h2>
+                <h3>
+                </h3>
+                <p></p>
+                <h3>Set Book's Overall Rating</h3>
+                <div class="rating">
+                    <button onclick="onRatingChange(-1)">-</button>
+                    <span></span>
+                    <button onclick="onRatingChange(1)">+</button></div>
+                <button class="close-modal" onclick="onCloseModal()">Close</button>
+            </div>
+        </div>
+
+        <header>
+            <h1>Welcome to my bookshop</h1>
+        </header>
+
+        <div class="add-book-bar">
+            <input type="text" placeholder="Title" />
+            <input type="number" min="0" step="0.5" placeholder="Price" />
+            <button onclick="onAddBook()">Add Book</button>
+        </div>
+
+        <table class="books-table">
+            <thead>
+                <tr>
+                    <td onclick="onSetSort('id', this)" class="sorted">Id</td>
+                    <td onclick="onSetSort('title', this)">Title</td>
+                    <td onclick="onSetSort('price', this)">Price</td>
+                    <td onclick="onSetSort('rating', this)">Rating</td>
+                    <td colspan="3">Actions</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- Rendered books -->
+            </tbody>
+        </table>
+        <nav class="paginator">
+            <button class="prev-page" onclick="onPrevPage()">&NestedLessLess;</button><button class="curr-page"
+                disabled></button><button class="next-page" onclick="onNextPage()">&NestedGreaterGreater;</button>
+        </nav>
+
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage-service.js"></script>
+    <script src="js/book-service.js"></script>
+    <script src="js/book-controller.js"></script>
+</body>
+
+</html>
